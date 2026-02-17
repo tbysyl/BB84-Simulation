@@ -1,6 +1,7 @@
 This code simulates the BB84 protocol in Python. As of the first commit, it only runs Alice to Bob.
 
 The code has support for:
+
 -Custom basis angles (not applicable to BB84)
 -Viewing stats
 -Averaging the key length to verify the expectation value of key length (N/2)
