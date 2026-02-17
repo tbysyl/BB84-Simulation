@@ -27,7 +27,7 @@ def overlap(theta,phi):
     elif abs(theta) > abs(phi):
         return abs(theta) - abs(phi)
     elif theta == -phi:
-        return 90
+        return 2 * abs(theta)
     else:
         return abs(phi) - abs(theta)
 
