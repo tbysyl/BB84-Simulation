@@ -9,9 +9,6 @@ basesTable = {
     3: 90
 }
 
-keyLength = 15
-debugStats = False
-
 def rng(n,m):
     return [random.randint(0,m) for i in range(n)]
 
@@ -46,7 +43,7 @@ def generate_probabilities(oList):
         probabilities_list.append(probability(o))
     return probabilities_list
 
-def bob_measure(pList,aStr):
+def measure(pList,aStr):
     bobReceive = []
     for bit in range (len(aStr)):
         if bit == 0:
@@ -60,14 +57,4 @@ def bob_measure(pList,aStr):
             else:
                 pass
     return bobReceive
-
-if debugStats:
-    print("Alice basis:",aliceBasis)
-    print("Alice bitstring:",aliceStr)
-    print("Bob basis:",bobBasis)
-    print("Angle difference:",abOverlaps)
-    print("Associated probabilities:",abProbabilities)
-    print("Result:",result)
-    print("Result length:",len(result))
-
 
