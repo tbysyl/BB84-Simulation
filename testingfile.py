@@ -18,7 +18,6 @@ for i in range(numRuns):
         aliceStr = rng(keyLength,1)
         eveResult = measure(aeProbabilities,aliceStr)
 
-
         #Eve hands off bits she received
         ebOverlaps = generate_overlaps_list(bobBasis,eveBasis,keyLength)
         ebProbabilities = generate_probabilities(ebOverlaps)
