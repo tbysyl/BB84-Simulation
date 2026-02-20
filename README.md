@@ -10,7 +10,7 @@ The code has support for:
 
 -Eve the eavesdropper
 
-This code is semi-heuristic and is not optimal. It is entirely for demonstartion purposes and cannot be used to implement BB84 properly. Function and variable names may be a little verbose and functions could pass to each other, however I wanted it to be as readable as possible for non-programmers.
+This code is semi-heuristic and is not optimal. It is entirely for demonstartion purposes and cannot be used to implement BB84 properly. Function and variable names may be a little verbose and functions could pass to each other, however I wanted it to be as readable as possible for non-programmers. There are a lot of function calls and instances of function returns being passed into others. I programmed it in this way as it is clear to see all the steps of BB84, and it is also modular and easy to debug.
 
 bb84sim.py <- Contains the logic and functions for running the simulation.
 
