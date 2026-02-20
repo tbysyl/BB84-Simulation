@@ -1,4 +1,4 @@
-This code simulates the BB84 protocol in Python.
+This code simulates the BB84 QKD protocol in Python.
 
 The code has support for:
 
