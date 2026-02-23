@@ -1,4 +1,4 @@
-from bb84test import *
+from bb84sim import *
 
 numRuns = int(input("Enter the number of runs to average: "))
 length = int(input("Enter number of initial bits: "))
