@@ -58,10 +58,10 @@ def sifting(unsifted,indices): #"Afraid to grade; Wouldn't it be fun?"
         sifted.append(unsifted[i])
     return sifted
 
-def count_errors(alice_key,bob_key):
+def count_errors(aKey,bKey):
     errors = 0
-    for i in range(len(alice_key)):
-        if alice_key[i] != bob_key[i]:
+    for i in range(len(aKey)):
+        if aKey[i] != bKey[i]:
             errors += 1
     return errors
 
@@ -73,24 +73,24 @@ def simulate(keyLength,eve):
     aBasis = rng_basis(keyLength)
     bBasis = rng_basis(keyLength)
     aBits = rng_bits(keyLength)
-    aliceMsg = encoding(aBasis,aBits)
+    aMsg = encoding(aBasis,aBits)
 
     if eve:
         #Eve creates basis, intercepts, and hands off
         eBasis = rng_basis(keyLength)
-        eveMeasured = measure(aliceMsg,eBasis)
-        eveMsg = encoding(eBasis,eveMeasured)
+        eMeasured = measure(aMsg,eBasis)
+        eMsg = encoding(eBasis,eMeasured)
         
         #Bob reads Eve's bits, believing they are from Alice
-        bobMeasured = measure(eveMsg,bBasis)
+        bMeasured = measure(eMsg,bBasis)
     else:
-        bobMeasured = measure(aliceMsg,bBasis)
+        bMeasured = measure(aMsg,bBasis)
 
     indices = matching_indices(aBasis,bBasis)
-    bobSifted = sifting(bobMeasured,indices)
-    aliceSifted = sifting(aBits,indices)
-    errorCount = count_errors(aliceSifted,bobSifted)
-    qber = calculate_qber(errorCount,len(aliceSifted))
+    bSifted = sifting(bMeasured,indices)
+    aSifted = sifting(aBits,indices)
+    errorCount = count_errors(aSifted,bSifted)
+    qber = calculate_qber(errorCount,len(aSifted))
 
-    return bobSifted,aliceSifted,errorCount,qber
+    return bSifted,aSifted,errorCount,qber
 
